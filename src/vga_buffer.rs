@@ -1,7 +1,7 @@
 use core::fmt;
 use lazy_static::lazy_static;
-use volatile::Volatile;
 use spin::Mutex;
+use volatile::Volatile;
 
 #[allow(dead_code)] // ignore unused color enums
 #[derive(Debug, Clone, Copy, PartialEq, Eq)] // make copy-, print- and comparable
@@ -152,3 +152,15 @@ pub static ref WRITER: Mutex<Writer> = Mutex::new(Writer {
     buffer: unsafe { &mut *(0xb8000 as *mut Buffer) }, // Pointer to vga buffer location // unsafe because don't know if valid pointer (but it is though)
 });
 }
+//
+// #[test_case]
+// fn test_println() {
+    // println!("test_println");
+// }
+//
+// #[test_case]
+// fn test_println_many() {
+  // for _ in 0..100 {
+    // println!("test_println_many");
+  // }
+// }
