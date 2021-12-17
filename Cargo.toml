@@ -17,4 +17,8 @@ features = ["spin_no_std"]
 [package.metadata.bootimage]
 test-args = ["-device", "isa-debug-exit,iobase=0xf4,iosize=0x04", "-serial", "stdio", "-display", "none"] # enable io port for sending exit & serial signals to qemu + hide screen
 test-success-exit-code = 33 # set succes exit code to 0 ((0x10 << 1) | 1)
-test-timeout = 60 # Quit after x seconds
+test-timeout = 60 # Quit after xcustom_oss
+
+[[test]]
+name = "stack_overflow"
+harness = false

@@ -25,6 +25,13 @@ pub extern "C" fn _start() -> ! {
     // Entry point function
     println!("Hello how you doing{}", "?");
 
+    custom_os::init(); // Init the kernel
+    
+    fn overflow() {
+      overflow();
+    }
+    overflow();
+
     #[cfg(test)]
     test_main();
 
